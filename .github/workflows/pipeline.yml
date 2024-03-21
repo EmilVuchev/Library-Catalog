@@ -19,7 +19,7 @@ jobs:
       - name: Start frontend
         run: npm run start &
       - name: Navigate to server folder
-        run: cd server
+        run: cd ./server
       - name: Start backend
         run: node server.js
   test:
