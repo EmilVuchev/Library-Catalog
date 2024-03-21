@@ -24,3 +24,25 @@ jobs:
         run: npm run start-be &
       - name: Start Playwright tests
         run: npx playwright test tests/ui.test.js
+  deploy-be:
+    name: Deploy BackEnd
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build_and_test
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_BE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+  deploy-fe:
+    name: Deploy FrontEnd
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build_and_test
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_FE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
