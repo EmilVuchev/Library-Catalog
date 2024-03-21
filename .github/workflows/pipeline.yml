@@ -19,7 +19,7 @@ jobs:
       - name: Start frontend
         run: npm run start-fe &
       - name: Start backend
-        run: npm run start-be
+        run: npm run start-be &
   test:
     needs: build
     runs-on: ubuntu-latest
