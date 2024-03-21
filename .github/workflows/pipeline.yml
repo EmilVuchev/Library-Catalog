@@ -17,11 +17,9 @@ jobs:
       - name: Install playwright test library
         run: npm install -D @playwright/test
       - name: Start frontend
-        run: npm run start &
-      - name: Navigate to server folder
-        run: cd ./server
+        run: npm run start-fe &
       - name: Start backend
-        run: node server.js
+        run: npm run start-be
   test:
     needs: build
     runs-on: ubuntu-latest
