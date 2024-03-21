@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,9 +20,5 @@ jobs:
         run: npm run start-fe &
       - name: Start backend
         run: npm run start-be &
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Start Playwright tests
         run: npx playwright test tests/ui.test.js
