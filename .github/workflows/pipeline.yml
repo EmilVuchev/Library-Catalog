@@ -18,8 +18,6 @@ jobs:
         run: npm install -D @playwright/test
       - name: Start frontend
         run: npm run start &
-      - name: Navigate to server folder
-        run: cd Library-Catalog/server/
       - name: Start backend
         run: node server.js
   test:
